@@ -57,8 +57,31 @@ function Home() {
           </div>
         </div>
       </div>
-
-      <div className="container w-75 mt-5 ">
+      <div
+        className="container text-center  fw-bold fs-4"
+        style={{ marginTop: "180px" }}
+      >
+        <p>
+          Do You Want To Create Your Own Diwali Greeting ? Customize it here 👇🏻{" "}
+        </p>
+      </div>
+      <div className="container w-75  shadow-lg rounded-2 pt-4 pb-2 text-center fw-bold fs-6   bg-secondary ">
+        <p style={{cursor: 'pointer'}}
+          onClick={() => {
+            const url = `${
+              import.meta.env.VITE_BASE_URL
+            }?to=${to}&from=${from}&s=${greetingNumber}&t=${theme}`;
+            {
+              navigator.clipboard.writeText(url);
+              alert(`url coppied successfully ${url}`)
+            }
+          }}
+        >
+          {import.meta.env.VITE_BASE_URL}?to={to}&from={from}&s={greetingNumber}
+          &t={theme}
+        </p>
+      </div>
+      <div className="container card card-body shadow w-75 mt-4 mb-5 ">
         <div className="row">
           <div className="col-md-3">
             <input
@@ -71,7 +94,7 @@ function Home() {
               placeholder="To"
             />
           </div>
-          <div className="col-md-3">
+          <div className="col-md-3 ">
             {" "}
             <input
               type="text"
@@ -115,7 +138,6 @@ function Home() {
           </div>
         </div>
       </div>
-      {/* navigator.clipboard.writeText(copyText.value); */}
     </>
   );
 }
