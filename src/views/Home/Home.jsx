@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import "./Home.css";
 import DiwaliLamp from "./images/diwali-lamp.png";
@@ -15,16 +15,18 @@ const GREETINGS = [
 
 function Home() {
   const [searchParams] = useSearchParams();
-  const to = searchParams.get("to");
-  const from = searchParams.get("from");
-  const greetingNumber =
-    searchParams.get("s") >= GREETINGS.length ? 0 : searchParams.get("s") || 0;
+  const [to, setTo] = useState(searchParams.get("to"));
+  const [from, setFrom] = useState(searchParams.get("from"));
+  const [greetingNumber, setGreetingNumber] = useState(
+    searchParams.get("s") >= GREETINGS.length ? 0 : searchParams.get("s") || 0
+  );
+  const [theme, setTheme] = useState(searchParams.get("t"));
 
   return (
     <>
       <div className="container mt-5">
         <div
-          className="card custom-card shadow w-md-25 d-block mx-auto"
+          className={`card custom-card shadow w-md-25 d-block mx-auto ${`theme-${theme}`}`}
           style={{ width: "" }}
         >
           <div className=" mt-5 position-relative ">
@@ -41,20 +43,79 @@ function Home() {
             />
           </div>
           <div className="card-body p-5  position-relative">
-            <div className="to fs-6 fw-normal">
+            <div className="to fs-6 ">
               <p className=""> 💐 Dear {to}</p>
             </div>
 
-            <div className="mt-4 fs-5 fw-lighter text-center">
+            <div className="mt-4 fs-5  text-center">
               <p>{GREETINGS[greetingNumber]}</p>
             </div>
 
-            <div className="from fs-6 fw-lighter">
+            <div className="from fs-6 ">
               <p className="">🙏 शुभेच्छुक {from}</p>
             </div>
           </div>
         </div>
       </div>
+
+      <div className="container w-75 mt-5 ">
+        <div className="row">
+          <div className="col-md-3">
+            <input
+              type="text"
+              className="form-control"
+              value={to}
+              onChange={(e) => {
+                setTo(e.target.value);
+              }}
+              placeholder="To"
+            />
+          </div>
+          <div className="col-md-3">
+            {" "}
+            <input
+              type="text"
+              className="form-control"
+              value={from}
+              onChange={(e) => {
+                setFrom(e.target.value);
+              }}
+              placeholder="From"
+            />
+          </div>
+          <div className="col-md-3">
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              value={greetingNumber}
+              onChange={(e) => {
+                setGreetingNumber(e.target.value);
+              }}
+            >
+              <option value="0">Greeting One</option>
+              <option value="1">Greeting Two</option>
+              <option value="2">Greeting Three</option>
+              <option value="3">Greeting Four</option>
+              <option value="4">Greeting Five</option>
+            </select>
+          </div>
+          <div className="col-md-3">
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              value={theme}
+              onChange={(e) => {
+                setTheme(e.target.value);
+              }}
+            >
+              <option value="orange">orange theme</option>
+              <option value="red">red theme</option>
+              <option value="blue">blue theme</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      {/* navigator.clipboard.writeText(copyText.value); */}
     </>
   );
 }

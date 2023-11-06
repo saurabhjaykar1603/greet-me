@@ -1,4 +1,4 @@
-body{
+body {
   background-color: red;
 }
 .position-relative {
@@ -7,7 +7,7 @@ body{
 .position-absolute {
   position: absolute;
 }
-.custom-card{
+.custom-card {
   width: 60%;
 }
 .to {
@@ -35,9 +35,20 @@ body{
   bottom: -150px;
   right: 18px;
 }
-
-@media  (max-width: 768px) {
-  .custom-card{
+.theme-orange {
+  background-color: orange !important;
+  color: dark !important;
+}
+.theme-red {
+  background-color: red !important;
+  color: #fff !important;
+}
+.theme-blue {
+  background-color: blue !important;
+  color: white !important;
+}
+@media (max-width: 768px) {
+  .custom-card {
     width: 100% !important;
   }
   .lamp {
