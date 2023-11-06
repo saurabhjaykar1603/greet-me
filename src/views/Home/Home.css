@@ -1,14 +1,57 @@
+body{
+  background-color: red;
+}
 .position-relative {
   position: relative;
 }
+.position-absolute {
+  position: absolute;
+}
+.custom-card{
+  width: 60%;
+}
 .to {
   position: absolute;
-  top : 8px;
-  left : 15px;
+  top: 38px;
+  left: 15px;
 }
 .from {
   position: absolute;
 
-  right : 15px;
-  bottom :0px;
+  right: 15px;
+  bottom: 0px;
+}
+.left-lamp {
+  height: 70px;
+  top: -40px;
+}
+.right-lamp {
+  height: 70px;
+  top: -40px;
+  right: 1px;
+}
+.lamp {
+  height: 50px;
+  bottom: -150px;
+  right: 18px;
+}
+
+@media  (max-width: 768px) {
+  .custom-card{
+    width: 100% !important;
+  }
+  .lamp {
+    height: 40px;
+    bottom: -240px;
+    right: 135px;
+  }
+  .left-lamp {
+    height: 50px;
+    top: -40px;
+  }
+  .right-lamp {
+    height: 50px;
+    top: -40px;
+    right: 1px;
+  }
 }

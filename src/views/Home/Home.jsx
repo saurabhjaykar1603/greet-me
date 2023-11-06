@@ -1,6 +1,8 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 import "./Home.css";
+import DiwaliLamp from "./images/diwali-lamp.png";
+import Lamp from "./images/lamp.png";
 
 const GREETINGS = [
   "स्नेहाचा सुगंध दरवळला,आनंदाचा सण आला.विनंती आमची परमेश्वराला,सौख्य, समृध्दी लाभो तुम्हाला.दिवाळीच्या हार्दिक शुभेच्छा!",
@@ -21,17 +23,33 @@ function Home() {
   return (
     <>
       <div className="container mt-5">
-        <div className="card">
-          <div className="card-body  position-relative">
-            <div className="to fs-6 fw">
-              <p className=""> 💐Dear {to}</p>
+        <div
+          className="card custom-card shadow w-md-25 d-block mx-auto"
+          style={{ width: "" }}
+        >
+          <div className=" mt-5 position-relative ">
+            <img
+              src={DiwaliLamp}
+              alt="diwali-lamp "
+              className="position-absolute left-lamp"
+            />
+            <img src={Lamp} alt="lamp" className="position-absolute lamp" />
+            <img
+              src={DiwaliLamp}
+              alt="diwali-lamp"
+              className="position-absolute right-lamp"
+            />
+          </div>
+          <div className="card-body p-5  position-relative">
+            <div className="to fs-6 fw-normal">
+              <p className=""> 💐 Dear {to}</p>
             </div>
 
-            <div className="mt-4 fs-5 text-center">
+            <div className="mt-4 fs-5 fw-lighter text-center">
               <p>{GREETINGS[greetingNumber]}</p>
             </div>
 
-            <div className="from">
+            <div className="from fs-6 fw-lighter">
               <p className="">🙏 शुभेच्छुक {from}</p>
             </div>
           </div>
