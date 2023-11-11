@@ -53,7 +53,7 @@ function Home() {
           </div>
           <div className="card-body p-5  position-relative">
             <div className="to fs-6  fw-bold">
-              <p className=""> 💐 Dear {to}</p>
+              <p className=""> 💐 Dear {to}❣️</p>
             </div>
 
             <div className="mt-4 fs-5  text-center fw-normal">
