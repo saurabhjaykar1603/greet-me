@@ -27,14 +27,16 @@ function Home() {
         <div
           className={`card custom-card shadow w-md-25 d-block mx-auto ${
             orange === "orange"
-              ? "theme-orange"
-              : orange === "red"
-              ? "theme-red"
-              : orange === "green"
-              ? "theme-green"
-              : orange === "purple"
-              ? "theme-purple"
-              : "theme-orange"
+                  ? "theme-orange"
+                  : orange === "red"
+                  ? "theme-red"
+                  : orange === "green"
+                  ? "theme-green"
+                  : orange === "blue"
+                  ? "theme-blue"
+                  : orange === "purple"
+                  ? "theme-purple"
+                  : "theme-orange"
           }`}
           style={{ width: "" }}
         >
